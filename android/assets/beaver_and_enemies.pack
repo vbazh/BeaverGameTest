@@ -1,0 +1,12 @@
+
+beaver_and_enemies.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Beaver
+  rotate: false
+  xy: 1, 1
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1

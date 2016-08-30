@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="25">
+ <tileset firstgid="1" name="tiles_gutter" tilewidth="16" tileheight="16" tilecount="2" columns="2">
+  <image source="eztiles.png" width="32" height="16"/>
+ </tileset>
+ <layer name="background" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJztw8EJAAAMA6Ej+w/dKfpTcNVUVVVVVVVVVVVVVVUfH6hOGGE=
+  </data>
+ </layer>
+ <layer name="Слой тайлов 1" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt2kEKhDAMBVDn/peejStJTGYo1Nr3IAtLbF34qRSPg47PWdF41RPNU/X9YvR88EbXnGTXdxmVX5gny2eUIfmF58nym/VV9456HqDW3WujcfmFuapzrM74SPILfZ1v5Wyftf/CM1Vnz9ee0esC65FfWJf8wrrkd1/RP0NqzWI/s985Jb/87wvozQE+
+  </data>
+ </layer>
+ <objectgroup name="ground">
+  <object id="14" x="1812.67" y="4" width="25.3333" height="202.667"/>
+  <object id="15" x="1808" y="0" width="30.6667" height="207.333"/>
+  <object id="20" x="0" y="172" width="738.667" height="36.3333"/>
+  <object id="21" x="739.333" y="176.667" width="455.333" height="31.3333"/>
+  <object id="22" x="1196" y="176" width="531.333" height="32"/>
+  <object id="24" x="1728.67" y="176.667" width="78.6667" height="32"/>
+ </objectgroup>
+</map>

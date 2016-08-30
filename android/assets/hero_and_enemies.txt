@@ -1,0 +1,12 @@
+hero_and_enemies.png
+size: 18, 29
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Beaver
+  rotate: false
+  xy: 1, 1
+  size: 16, 27
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
