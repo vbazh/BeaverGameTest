@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.vbazh.beavertest.BeaverGameTest;
+import com.vbazh.beavertest.Hud;
 
 /**
  * Created by vladislav on 18.08.2016.
@@ -109,6 +110,7 @@ public class Controller {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 firePressed = true;
                 Gdx.app.log("FIRE pressed!","YO");
+                Hud.removeLive(1);
                 return true;
             }
 

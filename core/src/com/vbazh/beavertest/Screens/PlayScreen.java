@@ -21,6 +21,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.vbazh.beavertest.BeaverGameTest;
+import com.vbazh.beavertest.Hud;
 import com.vbazh.beavertest.Scenes.Controller;
 import com.vbazh.beavertest.Sprites.Hero;
 import com.vbazh.beavertest.Tools.WorldCreator;
@@ -34,6 +35,7 @@ public class PlayScreen implements Screen {
     private OrthographicCamera gamecam;
     private Viewport gamePort;
     private Controller controller;
+    private Hud hud;
 
     private TmxMapLoader mapLoader;
     private TiledMap map;
@@ -55,11 +57,12 @@ public class PlayScreen implements Screen {
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(BeaverGameTest.WIDTH / BeaverGameTest.PPM, BeaverGameTest.HEIGHT / BeaverGameTest.PPM, gamecam);
         controller = new Controller();
+        hud = new Hud(game.batch);
 
 //        mapLoader = new TmxMapLoader();
 //        map = mapLoader.load("level1.tmx");
 
-        levels = new Levels(1);
+        levels = new Levels(level);
 
 
         renderer = new OrthogonalTiledMapRenderer(levels.getMap(), 1 / BeaverGameTest.PPM);
@@ -100,9 +103,9 @@ public class PlayScreen implements Screen {
     }
 
     public void handleInput(float dt){
-        if (controller.isRightPressed() && player.b2body.getLinearVelocity().x <= 2)
+        if (controller.isRightPressed() && player.b2body.getLinearVelocity().x <= 1)
             player.b2body.applyLinearImpulse(new Vector2(0.07f, 0), player.b2body.getWorldCenter(), true);
-        if (controller.isLeftPressed() && player.b2body.getLinearVelocity().x >= -2)
+        if (controller.isLeftPressed() && player.b2body.getLinearVelocity().x >= -1)
             player.b2body.applyLinearImpulse(new Vector2(-0.07f, 0), player.b2body.getWorldCenter(), true);
         if (controller.isJumpPressed() && player.b2body.getLinearVelocity().y == 0 )
             player.b2body.applyLinearImpulse(new Vector2(0, 5f), player.b2body.getWorldCenter(), true);
@@ -122,11 +125,12 @@ public class PlayScreen implements Screen {
         }
 
         float position = gamecam.position.x;
-        Gdx.app.log("position of cam",""+position);
+        //Gdx.app.log("position of cam",""+position);
 
 
 
         player.update(dt);
+        hud.update(dt);
         renderer.setView(gamecam);
 
     }
@@ -147,6 +151,10 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
         game.batch.end();
+
+        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        hud.stage.draw();
+
         controller.draw();
 
 
@@ -179,9 +187,6 @@ public class PlayScreen implements Screen {
         return world;
     }
 
-    public TiledMap getMap(){
-        return map;
-    }
 
     @Override
     public void dispose() {

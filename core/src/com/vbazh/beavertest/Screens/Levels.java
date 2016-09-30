@@ -53,4 +53,7 @@ public class Levels {
         chooseMap(level++);
         return map;
     }
+    public void dispose(){
+        map.dispose();
+    }
 }
